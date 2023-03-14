@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Result</title>
+</head>
+<body>
+<h1>Result</h1>
+<p th:text="'name: ' + ${person.name}" />
+<p th:text="'age: ' + ${person.age}" />
+<a href="/person/create">Create another person</a>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Person List</title>
+</head>
+<body>
+<form th:each="person : ${persons}" th:object="${person}" th:action="@{/person/choose2}" method="post">
+  <tr>
+    <td> <input type="text" name="id" th:value="${person.id}"/></td>
+    <td> <input type="text" name="name" th:value="${person.name}"/></td>
+    <td> <input type="text" name="age" th:value="${person.age}"/></td>
+    <td>
+        <a th:href="@{'/person/single/' + ${person.id}}">
+        <span th:text="${person.name}"></span>
+      </a>
+    </td>
+  </tr>
+</form>
+</body>
+</html>
