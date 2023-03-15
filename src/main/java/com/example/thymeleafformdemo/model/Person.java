@@ -1,4 +1,4 @@
-package com.example.thymeleafformdemo.models;
+package com.example.thymeleafformdemo.model;
 
 public class Person {
 
@@ -7,11 +7,7 @@ public class Person {
   private int age;
 
   public Person() {
-  }
-
-  public Person(String name, int age) {
-    this.name = name;
-    this.age = age;
+    id = 1; //hardkodet til test. Database skal sørge for at generere unikke primærnøgler
   }
 
   public Person(long id, String name, int age) {
@@ -19,7 +15,6 @@ public class Person {
     this.name = name;
     this.age = age;
   }
-
 
   public String getName() {
     return name;

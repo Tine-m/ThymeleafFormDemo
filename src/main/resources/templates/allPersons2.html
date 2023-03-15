@@ -2,21 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Person List</title>
+    <meta charset="UTF-8">
+    <title>Person List</title>
 </head>
 <body>
-<form th:each="person : ${persons}" th:object="${person}" th:action="@{/person/choose2}" method="post">
-  <tr>
-    <td> <input type="text" name="id" th:value="${person.id}"/></td>
-    <td> <input type="text" name="name" th:value="${person.name}"/></td>
-    <td> <input type="text" name="age" th:value="${person.age}"/></td>
-    <td>
-        <a th:href="@{'/person/single/' + ${person.id}}">
-        <span th:text="${person.name}"></span>
-      </a>
-    </td>
-  </tr>
-</form>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="person : ${people}">
+
+        <td><input type="text" name="name" th:value="${person.name}"/></td>
+        <td><input type="text" name="age" th:value="${person.age}"/></td>
+        <td>
+            <a th:href="@{'/person/single/' + ${person.id}}">Details path variable</a>
+        </td>
+        <td>
+            <a th:href="@{/person/details(id=${person.id})}">Details request parameter</a>
+            <!-- http://www.thymeleaf.org/doc/articles/standardurlsyntax.html -->
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
 </body>
 </html>
