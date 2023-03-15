@@ -47,6 +47,8 @@ public class PersonController {
 
   @PostMapping("/chosenPerson")
   public String choosePerson(@ModelAttribute Person person) {
+    // Som test vises kun valgte person i IJ's output vindue vha, sout
+    // Man burde selvfølgelig vise valgt person på en html side.
     System.out.println("data fra form " + person.getId() + " " + person.getName() + " " + person.getAge());
     return "redirect:/person/showall";
   }
